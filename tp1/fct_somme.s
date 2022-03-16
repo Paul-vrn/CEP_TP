@@ -13,17 +13,24 @@ uint32_t somme(void)
     .globl somme
 /* DEBUT DU CONTEXTE
 fonction :
-     nom_de_fonction  : feuille ou non feuille
+     somme  : feuille
 contexte :
-     parametre_0      : registre a0
-     parametre_1      : registre ai; pile *(sp+n)
-     variable_locale0 : registre t0
-     variable_locale1 : pile *(sp+k)
-     ra               : pile *(sp+p)
-     variable_globale : memoire [section nom_de_section]
+     i : registre t0
+     res : registre t3
  */
 somme:
 somme_fin_prologue:
-/* A compléter */
+    addi t0, zero, 1 /*i=1*/
+    addi t1, zero, 11 /*valeur d arret de la boucle*/
+    add t2, t2, zero /*booleen Z*/
+    add t3, t3, zero /* val pour faire la somme */
+while:
+    sltu t2, t0, t1
+    beqz t2, fin_while
+    add t3, t3, t0
+    addi t0, t0, 1
+    j while
+fin_while:
+    mv a0, t3
 somme_debut_epilogue:
     ret
