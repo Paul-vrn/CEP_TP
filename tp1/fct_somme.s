@@ -12,9 +12,9 @@ uint32_t somme(void)
     .text
     .globl somme
 /* DEBUT DU CONTEXTE
-fonction :
+  Fonction :
      somme  : feuille
-contexte :
+  Contexte :
      i : registre t0
      res : registre t3
  */

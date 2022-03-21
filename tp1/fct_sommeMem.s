@@ -14,9 +14,9 @@ uint32_t sommeMem(void)
 
     .globl sommeMem
 /* DEBUT DU CONTEXTE
-fonction :
+  Fonction :
      sommeMem : feuille
-contexte :
+  Contexte :
      i : registre t0
      res : registre t3
  */
