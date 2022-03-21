@@ -19,7 +19,7 @@ uint32_t mult_simple(void)
   Contexte :
      x  : mémoire, allouée en global
      y  : mémoire, allouée en global
-     res : registre t2
+     res : registre t0
 */
 mult_simple:
 mult_simple_fin_prologue:
