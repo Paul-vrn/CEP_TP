@@ -1,0 +1,18 @@
+Test interactif
+Multiplication non-signée : Entrez le premier opérande
+12
+Multiplication non-signée : Entrez le deuxième opérande
+3
+Multiplication de 12 par 3:
+Résultat attendu : 36
+Résultat de mult_simple: 36
+
+Tests supplémentaires
+Multiplication de 5 par 16:
+Résultat attendu : 80
+Résultat de mult_simple: 80
+
+Multiplication de 20 par 54:
+Résultat attendu : 1080
+Résultat de mult_simple: 1080
+

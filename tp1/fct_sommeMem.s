@@ -40,7 +40,7 @@ sommeMem_debut_epilogue:
     ret
 
     .data
-    .comm res, 32
+    .comm res, 8
 /* uint32_t res;
  la variable globale res étant définie dans ce fichier, il est nécessaire de
  la définir dans la section .data du programme assembleur : par exemple, avec
