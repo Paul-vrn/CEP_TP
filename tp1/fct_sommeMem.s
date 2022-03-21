@@ -26,9 +26,11 @@ sommeMem_fin_prologue:
     addi t1, zero, 11 /*valeur d arret de la boucle*/
     lui t4, 0 /*tampon*/
 while:
+    lw t3, res
     sltu t2, t0, t1
     beqz t2, fin_while
     add t3, t3, t0
+    sw t3, res, t4
     addi t0, t0, 1
     j while
 fin_while:
