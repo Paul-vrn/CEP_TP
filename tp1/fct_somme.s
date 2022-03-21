@@ -22,8 +22,6 @@ somme:
 somme_fin_prologue:
     addi t0, zero, 1 /*i=1*/
     addi t1, zero, 11 /*valeur d arret de la boucle*/
-    add t2, t2, zero /*booleen Z*/
-    add t3, t3, zero /* val pour faire la somme */
 while:
     sltu t2, t0, t1
     beqz t2, fin_while
