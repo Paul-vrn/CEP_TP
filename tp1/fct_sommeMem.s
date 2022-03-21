@@ -17,24 +17,22 @@ uint32_t sommeMem(void)
   Fonction :
      sommeMem : feuille
   Contexte :
-     res : mémoire, alloué en global
      i : registre t0
+     res : mémoire
  */
 sommeMem:
 sommeMem_fin_prologue:
     addi t0, zero, 1 /*i=1*/
     addi t1, zero, 11 /*valeur d arret de la boucle*/
     lui t4, 0 /*tampon*/
-    sw t3, res, t4
 while:
     sltu t2, t0, t1
     beqz t2, fin_while
-    lw t3, res
     add t3, t3, t0
-    sw t3, res, t4
     addi t0, t0, 1
     j while
 fin_while:
+    sw t3, res, t4
     mv a0, t3
 sommeMem_debut_epilogue:
     ret
