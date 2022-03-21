@@ -17,8 +17,8 @@ uint32_t sommeMem(void)
   Fonction :
      sommeMem : feuille
   Contexte :
+     res : mémoire, alloué en global
      i : registre t0
-     res : registre t3
  */
 sommeMem:
 sommeMem_fin_prologue:
