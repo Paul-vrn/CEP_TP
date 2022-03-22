@@ -21,9 +21,8 @@ uint32_t somme(void)
 somme:
 somme_fin_prologue:
     addi t0, zero, 1 /*i=1*/
-    addi t1, zero, 11 /*valeur d arret de la boucle*/
 while:
-    sltu t2, t0, t1
+    sltiu t2, t0, 11
     beqz t2, fin_while
     add t3, t3, t0
     addi t0, t0, 1

@@ -18,18 +18,18 @@ uint32_t mult_egypt(void)
     .globl mult_egypt
 /* DEBUT DU CONTEXTE
   Fonction :
-     mult_egypt  : feuille
+     mult_egypt : feuille
   Contexte :
      res : registre t0
-     x  : mémoire, allouée en global
-     y  : mémoire, allouée en global
+     x : mémoire, allouée en global
+     y : mémoire, allouée en global
 */
 mult_egypt:
+mult_egypt_fin_prologue:
     lw t2, x /* t0=x */
     lw t1, y /* t1=y */
     lui t0, 0 /* res=0 */
     lui t3, 0 /* %2==1*/
-
 while:
     lw t1, y
     lw t2, x
@@ -44,7 +44,6 @@ while:
     sw t1, y, t4
     j while
 fin_while:
-mult_egypt_fin_prologue:
     mv a0, t0
 mult_egypt_debut_epilogue:
     ret

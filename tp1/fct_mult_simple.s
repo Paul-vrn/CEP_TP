@@ -30,8 +30,6 @@ mult_simple_fin_prologue:
     sw t0, res, t4
     lw t1, y /* t1=y */
     lw t3, x /* t3=x */
-
-
 while:
     beqz t1, fin_while
     lw t3, x
