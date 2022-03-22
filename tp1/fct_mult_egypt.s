@@ -16,15 +16,14 @@ uint32_t mult_egypt(void)
 }
 */
     .globl mult_egypt
-/* Attention, res est une variable locale que l'on mettra dans t0 */
 /* DEBUT DU CONTEXTE
   Fonction :
      mult_egypt  : feuille
   Contexte :
-     x : mémoire, allouée en global
-     y : mémoire, allouée en global
      res : registre t0
- */
+     x  : mémoire, allouée en global
+     y  : mémoire, allouée en global
+*/
 mult_egypt:
     lw t2, x /* t0=x */
     lw t1, y /* t1=y */
