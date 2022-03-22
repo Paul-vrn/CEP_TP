@@ -17,7 +17,7 @@ uint8_t somme8(void)
 fonction :
      somme8 : feuille
 contexte :
-     res8, mémoire
+     res8 : mémoire
      i : registre t1
  */
 somme8:
