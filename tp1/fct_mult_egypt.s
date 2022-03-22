@@ -19,14 +19,11 @@ uint32_t mult_egypt(void)
 /* Attention, res est une variable locale que l'on mettra dans t0 */
 /* DEBUT DU CONTEXTE
 fonction :
-     nom_de_fonction  : feuille ou non feuille
+     mult_egypt  : feuille
 contexte :
-     parametre_0      : registre a0
-     parametre_1      : registre ai; pile *(sp+n)
-     variable_locale0 : registre t0
-     variable_locale1 : pile *(sp+k)
-     ra               : pile *(sp+p)
-     variable_globale : memoire [section nom_de_section]
+     x : mémoire
+     y : mémoire
+     res : registre t2
  */
 mult_egypt:
     lw t0, x /* t0=x */
@@ -49,6 +46,6 @@ while:
     j while
 fin_while:
 mult_egypt_fin_prologue:
-    mv a0, t0
+    mv a0, t2
 mult_egypt_debut_epilogue:
     ret
