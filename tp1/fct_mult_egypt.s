@@ -21,31 +21,31 @@ uint32_t mult_egypt(void)
   Fonction :
      mult_egypt  : feuille
   Contexte :
-     x : mémoire
-     y : mémoire
-     res : registre t2
+     x : mémoire, allouée en global
+     y : mémoire, allouée en global
+     res : registre t0
  */
 mult_egypt:
-    lw t0, x /* t0=x */
+    lw t2, x /* t0=x */
     lw t1, y /* t1=y */
-    lui t2, 0 /* res=0 */
+    lui t0, 0 /* res=0 */
     lui t3, 0 /* %2==1*/
 
 while:
     lw t1, y
-    lw t0, x
+    lw t2, x
     beqz t1, fin_while
     andi t3, t1, 1
     beqz t3, fin_if 
-    add t2, t2, t0
+    add t0, t0, t2
     fin_if:
-    slli t0, t0, 1 /* x=x<<1 */
+    slli t2, t2, 1 /* x=x<<1 */
     srli t1, t1, 1 /* y=y>>1 */
-    sw t0, x, t4
+    sw t2, x, t4
     sw t1, y, t4
     j while
 fin_while:
 mult_egypt_fin_prologue:
-    mv a0, t2
+    mv a0, t0
 mult_egypt_debut_epilogue:
     ret

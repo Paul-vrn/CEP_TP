@@ -12,8 +12,8 @@ uint32_t mult_native(void)
   Fonction :
      mult_native  : feuille
   Contexte :
-     x : mémoire
-     y : mémoire
+     x : mémoire, allouée en global
+     y : mémoire, allouée en global
  */
 mult_native:
     lw t0, x /* t0=x */
