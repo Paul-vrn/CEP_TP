@@ -9,9 +9,9 @@ uint32_t mult_native(void)
 */
     .globl mult_native
 /* DEBUT DU CONTEXTE
-fonction :
+  Fonction :
      mult_native  : feuille
-contexte :
+  Contexte :
      x : mémoire
      y : mémoire
  */
