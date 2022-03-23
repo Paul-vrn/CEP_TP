@@ -12,8 +12,6 @@ uint32_t fact_papl(uint32_t n)
 }
 */
 
-/* On impose de plus le placement de tmp dans un registre temporaire */
-
     .text
     .globl fact_papl
     /* uint32_t fact_papl(uint32_t n) */

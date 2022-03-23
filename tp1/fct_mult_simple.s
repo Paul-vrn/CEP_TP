@@ -1,6 +1,6 @@
     .text
 /*
-uint32_t x, y;
+uint32_t x, y, res;
 
 uint32_t mult_simple(void)
 {
