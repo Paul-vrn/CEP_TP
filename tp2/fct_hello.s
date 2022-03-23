@@ -23,6 +23,5 @@ hello_fin_prologue:
   sw ra, 8(sp)
   jal affiche_HelloWorld
   lw ra, 8(sp)
-  jr ra
 hello_debut_epilogue:
   ret

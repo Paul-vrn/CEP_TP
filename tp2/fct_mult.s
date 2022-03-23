@@ -32,7 +32,8 @@ mult:
     /* on reserve la place nécessaire dans la pile */
     addi sp, sp, -4
     /* res = 0; */
-    sw   zero, 0(sp) /* ici, 0(sp) n'est pas une étiquette mais un registre donc pas besoin d'un 3e argument pour le calcul de l'adresse (elle est déjà donnée: sp + 0) */
+    sw   zero, 0(sp) /* ici, 0(sp) n'est pas une étiquette mais un registre donc pas besoin d'un 3e argument pour le calcul de l'adresse 
+    (elle est déjà donnée: sp + 0) */
     /* while (y != 0) { */
 mult_fin_prologue:
 while:
@@ -51,4 +52,6 @@ fin_while:
 mult_debut_epilogue:
     addi sp, sp, 4 /* on libère la pile */
     ret
-/* On peut remarquer que le contexte imposé ici utilise la pile pour la variable locale alors que la fonction est une fonction feuille. Par la suite, on placera les variables locales en pile que si la fonction est non-feuille (contient un appel d'un sous-fonction) ou si le contexte donné l'impose. */
+/* On peut remarquer que le contexte imposé ici utilise la pile pour la variable locale alors que la fonction est une fonction feuille. 
+Par la suite, on placera les variables locales en pile que si la fonction est non-feuille (contient un appel d'un sous-fonction) ou si le 
+contexte donné l'impose. */
