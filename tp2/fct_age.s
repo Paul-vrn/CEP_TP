@@ -18,11 +18,9 @@ uint32_t age(uint32_t annee_naissance)
     uint32_t age     : pile *(sp+0)
 */
 age:
-/* A compléter */
 age_fin_prologue:
   lui t0, 0 /* age = 0*/
-  lui t1, 0
-  addi t1, t1, 2022
+  addi t1, zero, 2022
   sub t0, t1, a0
   mv a0, t0
 age_debut_epilogue:

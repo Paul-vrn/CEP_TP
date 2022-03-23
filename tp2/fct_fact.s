@@ -11,7 +11,6 @@ uint32_t fact(uint32_t n)
 
     .text
     .globl fact
-    /* uint32_t fact(uint32_t n) */
 /* DEBUT DU CONTEXTE
   Fonction :
      fact : non feuille
@@ -20,16 +19,14 @@ uint32_t fact(uint32_t n)
      a0 : pile * (sp+8)
  */
 fact:
-fact_fin_prologue:
     addi sp, sp, -8
     sw ra, 4(sp)
     sw a0, 8(sp)
-    mv t0, a0
-    slti t2, t0, 2 /* t2= n<2*/
+fact_fin_prologue:
+    slti t2, a0, 2 /* t2= n<2*/
     beqz t2, else
     if:
-        lui a0, 0
-        addi a0, a0, 1
+        addi a0, zero, 1
         j fact_debut_epilogue
     else:
         addi a0, a0, -1

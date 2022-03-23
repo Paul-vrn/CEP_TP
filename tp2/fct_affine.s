@@ -17,9 +17,9 @@ uint32_t affine(uint32_t a, uint32_t b, uint32_t x)
      ra : pile *(sp+16)
  */
 affine:
-affine_fin_prologue:
     addi sp, sp, -16
     sw ra, 8(sp)
+affine_fin_prologue:
     mv t0, a0 /* a */
     mv t1, a1 /* b */
     mv t2, a2 /* x */
