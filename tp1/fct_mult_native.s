@@ -20,7 +20,7 @@ mult_native_fin_prologue:
     lw t0, x /* t0=x */
     lw t1, y /* t1=y */
     lui t2, 0 /* res */
-    mul t2, t0, t1
+    mul t2, t0, t1 /* t2=t0*t1 */
     mv a0, t2
 mult_native_debut_epilogue:
     ret
