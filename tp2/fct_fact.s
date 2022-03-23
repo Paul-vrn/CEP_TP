@@ -15,8 +15,8 @@ uint32_t fact(uint32_t n)
   Fonction :
      fact : non feuille
   Contexte :
+     n : registre a0
      ra : pile *(sp+4)
-     a0 : pile * (sp+8)
  */
 fact:
     addi sp, sp, -8
