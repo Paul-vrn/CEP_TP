@@ -19,7 +19,10 @@ DEBUT DU CONTEXTE
     ra  : pile *(sp+0)
 */
 hello:
-/* A compléter */
 hello_fin_prologue:
+  sw ra, 8(sp)
+  jal affiche_HelloWorld
+  lw ra, 8(sp)
+  jr ra
 hello_debut_epilogue:
-    ret
+  ret
