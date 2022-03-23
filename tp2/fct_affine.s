@@ -7,15 +7,14 @@ uint32_t affine(uint32_t a, uint32_t b, uint32_t x)
 
     .text
     .globl affine
-    /* uint32_t affine(uint32_t a, uint32_t b, uint32_t x) */
 /* DEBUT DU CONTEXTE
-fonction :
+  Fonction :
      affine : non feuille
-contexte :
+  Contexte :
      a : registre a0
      b : registre a1
      x : registre a2
-     ra  : pile *(sp+16)
+     ra : pile *(sp+16)
  */
 affine:
 affine_fin_prologue:
