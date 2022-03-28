@@ -80,7 +80,6 @@ val_binaire_fin_prologue:
     sll t0, t0, 1
     or t1, t1, t0
     lw t0, 28(sp)
-    sll t0, t0, 0
     or t1, t1, t0
 
 val_binaire_debut_epilogue:
