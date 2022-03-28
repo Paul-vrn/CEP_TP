@@ -27,7 +27,7 @@ affine_fin_prologue:
     lw a1, 0(sp)
     jal mult
     lw a1, 4(sp)
-    add a0, a0, t1
+    add a0, a0, a1
 affine_debut_epilogue:
     lw ra, 12(sp)
     addi sp, sp, 16
