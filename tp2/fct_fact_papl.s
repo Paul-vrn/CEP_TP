@@ -39,6 +39,7 @@ fact_papl_fin_prologue:
         mul a0, t0, a0 /* bits de point faible */
         mulhu a1, t0, a0 /* bits de point fort*/
         slt t3, zero, a1 /* t3=0<a1*/
+        addi a0, a0, 1
         beqz t3, skip_error
         jal erreur_fact
         skip_error:
