@@ -27,6 +27,7 @@ fact_papl:
     sw ra, 8(sp)
     sw a0, 4(sp) /* bit de point faible */
 fact_papl_fin_prologue:
+    mv t0, a0 /* t0=n*/
     sltiu t2, a0, 2 /* t2=n<2*/
     beqz t2, else
     if:
@@ -39,8 +40,8 @@ fact_papl_fin_prologue:
         mul a0, t0, a0 /* bits de point faible */
         mulhu a1, t0, a0 /* bits de point fort*/
         slt t3, zero, a1 /* t3=0<a1*/
-        addi a0, a0, 1
         beqz t3, skip_error
+        mv a0, t0
         jal erreur_fact
         skip_error:
 fact_papl_debut_epilogue:
