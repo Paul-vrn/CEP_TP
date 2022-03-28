@@ -11,11 +11,10 @@ uint32_t affine(uint32_t a, uint32_t b, uint32_t x)
   Fonction :
      affine : non feuille
   Contexte imposé :
+     ra : pile *(sp+0)
      a : registre a0
      b : registre a1
      x : registre a2
-  Contexte :
-     ra : pile *(sp+0)
  */
 affine:
     addi sp, sp, -16
