@@ -40,8 +40,8 @@ uint8_t val_binaire(uint8_t b15, uint8_t b14, uint8_t b13, uint8_t b12,
 
  */
 val_binaire:
-    lui t1, 0
 val_binaire_fin_prologue:
+    lui t1, 0
 	sll t0, a0, 15
 	or t1, t1, t0
 	sll t0, a1, 14
