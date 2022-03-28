@@ -20,14 +20,14 @@ uint32_t fact_papl(uint32_t n)
   Contexte :
      ra : pile *(sp+0)
      n : registre a0; pile *(sp+4)
-     tmp : registre a0,a1
+     tmp :/ registre a0,a1
  */
 fact_papl:
     addi sp, sp, -8
     sw ra, 8(sp)
     sw a0, 4(sp) /* bit de point faible */
 fact_papl_fin_prologue:
-    slti t2, a0, 2 /* t2=n<2*/
+    sltiu t2, a0, 2 /* t2=n<2*/
     beqz t2, else
     if:
         addi a0, zero, 1
@@ -37,7 +37,7 @@ fact_papl_fin_prologue:
         jal fact_papl
         lw t0, 4(sp) /*t0 = fact(n-1)*/
         mul a0, t0, a0 /* bits de point faible */
-        mulh a1, t0, a0 /* bits de point fort*/
+        mulhu a1, t0, a0 /* bits de point fort*/
         slt t3, zero, a1 /* t3=0<a1*/
         beqz t3, skip_error
         jal erreur_fact

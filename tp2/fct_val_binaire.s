@@ -18,17 +18,71 @@ uint8_t val_binaire(uint8_t b15, uint8_t b14, uint8_t b13, uint8_t b12,
                     uint8_t b7, uint8_t b6, uint8_t b5, uint8_t b4,
                     uint8_t b3, uint8_t b2, uint8_t b1, uint8_t b0); */
 /* DEBUT DU CONTEXTE
-fonction :
-     nom_de_fonction  : feuille ou non feuille
-contexte :
-     parametre_0      : registre a0
-     parametre_1      : registre ai; pile *(sp+n)
-     variable_locale0 : registre t0
-     variable_locale1 : pile *(sp+k)
-     ra               : pile *(sp+p)
-     variable_globale : memoire [section nom_de_section]
+  Fonction :
+     val_binaire  : feuille
+  Contexte :
+     b15 : registre a0
+     b14 : registre a1
+     b13 : registre a2
+     b12 : registre a3
+     b11 : registre a4
+     b10 : registre a5
+     b9 : registre a6
+     b8 : registre a7
+     b7 : pile *(sp+0)
+     b6 : pile *(sp+4)
+     b5 : pile *(sp+8)
+     b4 : pile *(sp+12)
+     b3 : pile *(sp+16)
+     b2 : pile *(sp+20)
+     b1 : pile *(sp+24)
+     b0 : pile *(sp+28)
+
  */
 val_binaire:
 val_binaire_fin_prologue:
+	sll t0, a0, 15
+	or t1, t1, t0
+	sll t0, a1, 14
+	or t1, t1, t0
+	sll t0, a2, 13
+	or t1, t1, t0
+	sll t0, a3, 12
+	or t1, t1, t0
+	sll t0, a4, 11
+	or t1, t1, t0
+	sll t0, a5, 10
+	or t1, t1, t0
+	sll t0, a6, 9
+	or t1, t1, t0
+	sll t0, a7, 8
+	or t1, t1, t0
+
+    lw t0, 0(sp)
+    sll t0, t0, 7
+    or t1, t1, t0
+    lw t0, 4(sp)
+    sll t0, t0, 6
+    or t1, t1, t0
+    lw t0, 8(sp)
+    sll t0, t0, 5
+    or t1, t1, t0
+    lw t0, 12(sp)
+    sll t0, t0, 4
+    or t1, t1, t0
+    lw t0, 16(sp)
+    sll t0, t0, 3
+    or t1, t1, t0
+    lw t0, 20(sp)
+    sll t0, t0, 2
+    or t1, t1, t0
+    lw t0, 24(sp)
+    sll t0, t0, 1
+    or t1, t1, t0
+    lw t0, 28(sp)
+    sll t0, t0, 0
+    or t1, t1, t0
+
 val_binaire_debut_epilogue:
+    mv a0, t1
     ret
