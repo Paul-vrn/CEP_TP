@@ -14,7 +14,7 @@ uint32_t fact(uint32_t n)
 /* DEBUT DU CONTEXTE
   Fonction :
      fact : non feuille
-  Contexte :
+  Contexte imposé :
      n : registre a0
      ra : pile *(sp+4)
  */
