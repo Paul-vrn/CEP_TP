@@ -1,8 +1,8 @@
 /*
 uint32_t taille_chaine(const char *chaine)
 {
-    uint32_t taille=0;
-    while (chaine[taille] != '\0'){
+    uint32_t taille = 0;
+    while (chaine[taille] != '\0') {
         taille++;
     }
     return taille;

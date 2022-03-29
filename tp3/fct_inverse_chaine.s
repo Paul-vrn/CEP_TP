@@ -12,6 +12,7 @@ void inverse_chaine(char *ptr, uint32_t taille)
     }
 }
 */
+    .text
     .globl inverse_chaine
 /*void inverse_chaine(char *ptr, uint32_t taille) */
 /* DEBUT DU CONTEXTE
