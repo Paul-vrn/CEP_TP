@@ -21,6 +21,7 @@ struct cellule_t *decoupe_liste(struct cellule_t *l, struct cellule_t **l1, stru
     return l;
 }
 */
+    .text
     .globl decoupe_liste
 /*
 Fonction feuille : A priori pile inchangée, mais besoin de l'adresse des
