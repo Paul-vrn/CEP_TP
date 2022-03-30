@@ -34,8 +34,8 @@ while:
     lbu t0, 0(a0) /* tmp = *ptr */
     add t4, a0, t1 /* adresse de ptr[dep] */
     lbu t5, 0(t4) /* valeur de ptr[dep] */
-    sb t5, 0(a0) /* *ptr = ptr[dep] */
-    sb t0, 0(t4)  /* ptr[dep] = tmp */
+    sb t5, 0(a0) /* ptr[dep] = tmp  */
+    sb t0, 0(t4)/* *ptr = ptr[dep] */
 
     addi t1, t1, -2 /* dep = dep - 2 */
     addi a0, a0, 1 /* ptr++ */

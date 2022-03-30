@@ -20,18 +20,51 @@ void tri_min(int32_t tab[], uint32_t taille)
     .globl tri_min
 /* void tri_min(int32_t tab[], uint32_t taille) */
 /* DEBUT DU CONTEXTE
-fonction :
-     nom_de_fonction  : feuille ou non feuille
-contexte :
-     parametre_0      : registre a0
-     parametre_1      : registre ai; pile *(sp+n)
-     variable_locale0 : registre t0
-     variable_locale1 : pile *(sp+k)
-     ra               : pile *(sp+p)
-     variable_globale : memoire [section nom_de_section]
+  Fonction :
+     tri_min  : feuille
+  Contexte :
+     tab : registre a0
+     taille : registre a1
+     i : registre t0
+     j : registre t1
+     ix_min : registre t2
+     tmp : registre t3
  */
 tri_min:
 tri_min_fin_prologue:
+    lui t0, 0
+while1:
+    addi t4, a1, -1 /* taille -1 */
+    bge t0, t4, fin_while1
+    mv t2, t0 /* ix_min = i */
+    addi t1, t0, 1 /* j = i + 1 */
+    while2:
+        bge t1, a1, fin_while2
+        slli t4, t1, 2 /*t1=t1*4*/
+        add t3, a0, t4 /* adresse de tab[j]*/ 
+        lw t5, 0(t3) /*valeur de tab[j]*/
+
+        slli t4, t2, 2
+        add t3, a0, t4 /* adresse de tab[ix_min]*/
+        lw t6, 0(t3) /* valeur de tab[ix_min]*/
+        bge t5, t6, skip_if /* tab[j] < tab[ix_min]*/
+            mv t2, t1 /* ix_min = j */
+        skip_if:
+        addi t1, t1, 1 /* j++ */
+        j while2
+    fin_while2:
+    slli t4, t0, 2
+    add t5, a0, t4 /* (t5) adresse de tab[i] */
+    lw t3, 0(t5) /* tmp = tab[i] */
+    slli t4, t2, 2
+    add t6, a0, t4 /* (t6) adresse de tab[ix_min] */
+    lw t4, 0(t6) /* valeur de tab[ix_min] */
+    sw t4, 0(t5) /* tab[i] = valeur de tab[ix_min] */
+    sw t3, 0(t6) /* tab[ix_min] = tmp*/
+    addi t0, t0, 1 /* i++ */
+    j while1
+fin_while1:
+
 tri_min_debut_epilogue:
     ret
 
