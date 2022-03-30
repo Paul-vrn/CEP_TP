@@ -10,20 +10,26 @@ uint32_t taille_chaine(const char *chaine)
 */
     .text
     .globl taille_chaine
-/* uint32_t taille_chaine(const char *chaine) */
 /* DEBUT DU CONTEXTE
-fonction :
-     nom_de_fonction  : feuille ou non feuille
-contexte :
-     parametre_0      : registre a0
-     parametre_1      : registre ai; pile *(sp+n)
-     variable_locale0 : registre t0
-     variable_locale1 : pile *(sp+k)
-     ra               : pile *(sp+p)
-     variable_globale : memoire [section nom_de_section]
+  Fonction :
+     taille_chaine  : feuille
+  Contexte :
+     chaine: registre a0
+     taille: registre t0
  */
 
 taille_chaine:
+    lui t0, 0
+    lui t1, 0
+    lbu t1, 0(a0)
 taille_chaine_fin_prologue:
+while:
+    beqz t1, fin_while
+    add t0, t0, t1
+    addi a0, a0, 4
+    lbu t1, 0(a0)
+    j while
+fin_while:
+    mv a0, t0
 taille_chaine_debut_epilogue:
     ret
