@@ -14,8 +14,8 @@ uint32_t taille_chaine(const char *chaine)
   Fonction :
      taille_chaine  : feuille
   Contexte :
-     chaine: registre a0
-     taille: registre t0
+     chaine: registre a0, paramètre de type (char *)
+     taille: registre t0, paramètre de type (uint32_t)
  */
 
 taille_chaine:
@@ -25,7 +25,7 @@ taille_chaine_fin_prologue:
     lbu t1, 0(a0)
 while:
     beqz t1, fin_while
-    add t0, t0, t1
+    addi t0, t0, 1
     addi a0, a0, 1
     lbu t1, 0(a0)
     j while
