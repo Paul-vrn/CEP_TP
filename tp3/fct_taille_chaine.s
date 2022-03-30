@@ -19,14 +19,14 @@ uint32_t taille_chaine(const char *chaine)
  */
 
 taille_chaine:
+taille_chaine_fin_prologue:
     lui t0, 0
     lui t1, 0
     lbu t1, 0(a0)
-taille_chaine_fin_prologue:
 while:
     beqz t1, fin_while
     add t0, t0, t1
-    addi a0, a0, 4
+    addi a0, a0, 1
     lbu t1, 0(a0)
     j while
 fin_while:
