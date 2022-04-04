@@ -16,17 +16,30 @@ void inverse_liste(struct cellule_t **l)
     .globl inverse_liste
 /* void inverse_liste(struct cellule_t **l) */
 /* DEBUT DU CONTEXTE
-fonction :
-     nom_de_fonction  : feuille ou non feuille
-contexte :
-     parametre_0      : registre a0
-     parametre_1      : registre ai; pile *(sp+n)
-     variable_locale0 : registre t0
-     variable_locale1 : pile *(sp+k)
-     ra               : pile *(sp+p)
-     variable_globale : memoire [section nom_de_section]
+  Fonction :
+     inverse_liste  : feuille
+  Contexte :
+     res : registre t0, variable locale de type (struct cellule_t*)
+     suiv : registre t1, variable locale de type (struct cellule_t*)
+     l : registre a0, paramètre de type (struct cellule_t*)
+
  */
 inverse_liste:
 inverse_liste_fin_prologue:
+    addi t0, zero, 0 /* res = NULL*/
+    lw t2, 0(a0) /* t2 = *l */
+while:
+    lw t2, 0(a0) /* t2 = *l */
+    beqz t2, fin_while
+    lw t1, 4(t2) /* suiv = *l->suiv */
+
+    sw t0, 4(t2)/* *l->suiv = res */
+
+    mv t0, t2 /* res = *l */
+    sw t1, 0(a0) /* *l = suiv */
+
+    j while
+fin_while:
+    sw t0, 0(a0)
 inverse_liste_debut_epilogue:
     ret
