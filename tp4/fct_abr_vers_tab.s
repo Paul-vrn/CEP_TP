@@ -25,8 +25,8 @@ abr_vers_tab:
     addi sp, sp, -8
     sw ra, 4(sp)
     sw a0, 0(sp)
-    lui t6, 0
 abr_vers_tab_fin_prologue:
+    lui t6, 0
 if:
     beqz a0, fin_if /* branch si abr == NULL */
 
