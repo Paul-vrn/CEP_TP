@@ -15,7 +15,7 @@ static void test(const char *ch)
 
 int main()
 {
-   const char *mots[6] = { "level", "essayasse", "coloc", "barbe", "plumeau",
+   const char *mots[6] = { "test", "level", "essayasse", "barbe", "plumeau",
                            "sator arepo tenet opera rotas"};
    for (uint8_t i = 0; i < 6; i++) {
       test(mots[i]);

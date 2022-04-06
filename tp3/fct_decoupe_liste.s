@@ -44,5 +44,27 @@ Contexte :
 */
 decoupe_liste:
 decoupe_liste_fin_prologue:
+    
+while:
+    beqz a0, fin_while
+    andi t1, a0, 1 /* t1 = l->val */
+    beqz t1, fin_if /* if (l->val % 2 == 1) */
+    lw t2, 0(a1) /* t2 = *l1 */
+    sw a0, 4(t2) /* (*l1)->suiv = l */
+    sw a0, 0(a1) /* *l1 = l */
+    j fin_if
+    else:
+    lw t3, 0(a2) /* t3 = *l2 */
+    sw a0, 4(t3) /* (*l2)->suiv = l */
+    sw a0, 0(a2) /* *l2 = l */
+    fin_if:
+    lw a0, 4(a0) /*l = l->suiv */
+fin_while:
+    sw x0, 4(a1) /* (*l1)->suiv = NULL */
+    sw x0, 4(a2) /* (*l2)->suiv = NULL */
+    lw t2, 0(a1) /* t2 = *l1 */
+    sw t2, 4(sp) /* *l1 = fictif1.suiv */
+    lw t3, 0(a2) /* t3 = *l2 */
+    sw t3, 12(sp) /* *l2 = fictif2.suiv */
 decoupe_liste_debut_epilogue:
     ret

@@ -39,7 +39,7 @@ struct noeud_t *abr_enonce(void)
                                            cree_noeud(7, NULL, NULL))),
                      cree_noeud(10, NULL, cree_noeud(14, cree_noeud(13, NULL, NULL), NULL)));
 }
-
+/*1, 3, 4, 6, 7, 8, 10, 13, 14*/
 // teste la presence de valeurs dans l'arbre
 void test_presence(struct noeud_t *abr)
 {
