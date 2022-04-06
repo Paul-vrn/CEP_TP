@@ -20,10 +20,11 @@ contexte :
      ra : pile *(sp+4)
      abr : registre a0 ; pile *(sp+0)  (champ de type struct noeud_t*)
      ptr : mémoire
+     fd :
 */
 abr_vers_tab:
-    addi sp, sp, -8
-    sw ra, 4(sp)
+    addi sp, sp, -12
+    sw ra, 8(sp)
     sw a0, 0(sp)
 abr_vers_tab_fin_prologue:
     lui t6, 0
@@ -42,7 +43,7 @@ if:
     addi t2, t2, 4
     sw t2, ptr, t6
     lw t3, 8(t0) /* t3 = abr->fd */
-    
+    sw t3, 4(sp)
     jal free /* free(abr) */
     sw t4, 0(sp)
     mv a0, t4
@@ -53,8 +54,8 @@ if:
     mv a0, t4
 fin_if:
 abr_vers_tab_debut_epilogue:
-    lw ra, 4(sp)
-    addi sp, sp, 8
+    lw ra, 8(sp)
+    addi sp, sp, 12
     ret
 
     .data
