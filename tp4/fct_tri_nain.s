@@ -27,6 +27,7 @@ contexte :
      tab : registre a0
      taille : registre a1
      i : registre t0
+     tmp : registre t5
  */
 tri_nain:
 tri_nain_fin_prologue:

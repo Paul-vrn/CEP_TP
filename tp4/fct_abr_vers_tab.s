@@ -20,7 +20,7 @@ contexte :
      ra : pile *(sp+4)
      abr : registre a0 ; pile *(sp+0)  (champ de type struct noeud_t*)
      ptr : mémoire
-     fd : mémoire
+     fd : registre t3; mémoire
 */
 abr_vers_tab:
     addi sp, sp, -12
