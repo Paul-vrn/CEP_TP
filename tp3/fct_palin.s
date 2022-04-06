@@ -19,8 +19,8 @@ bool palin(const char *ch)
      palin  : non feuille
   Contexte :
      ch : registre a0; pile *(sp+0) (champ de type char*)
-     inf : registre t1; pile *(sp+4) (champ de type uint32_t)
-     sup : registre t2; pile *(sp+8) (champ de type uint32_t)
+     inf : pile *(sp+4) (champ de type uint32_t)
+     sup : pile *(sp+8) (champ de type uint32_t)
      ra : pile *(sp+16)
  */
 palin:

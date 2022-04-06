@@ -17,10 +17,10 @@ void abr_vers_tab(struct noeud_t *abr)
 fonction :
      abr_vers_tab  : non feuille
 contexte :
-     ra : pile *(sp+4)
+     ra : pile *(sp+8)
      abr : registre a0 ; pile *(sp+0)  (champ de type struct noeud_t*)
      ptr : mémoire
-     fd : registre t3; mémoire
+     fd : pile *(sp+4)
 */
 abr_vers_tab:
     addi sp, sp, -12
