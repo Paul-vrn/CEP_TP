@@ -42,14 +42,14 @@ elsif2:
     lw t1, 0(a1)
     blt a0, t1, else /* branch si val < abr->val*/ 
     lw a1, 8(a1) /* a1 = abr->fd */
-    j abr_est_present
+    jal abr_est_present
     /* return abr_est_present(val, abr->fg) */
     sw t2, 4(sp)
     mv a1, t2
     j fin_if
 else:
     lw a1, 4(a1) /* a1 = abr->fg */
-    j abr_est_present
+    jal abr_est_present
     /* return abr_est_present(val, abr->fd) */
     sw t2, 4(sp)
     mv a1, t2
