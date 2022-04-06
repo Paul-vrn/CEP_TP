@@ -15,9 +15,9 @@ bool abr_est_present_tail_call(uint32_t val, struct noeud_t *abr)
     .text
     .globl abr_est_present_tail_call
 /* DEBUT DU CONTEXTE
-fonction :
-     nom_de_fonction  : feuille ou non feuille
-contexte :
+  Fonction :
+     abr_est_present_tail_call  : feuille
+  Contexte :
      parametre_0      : registre a0
      parametre_1      : registre ai; pile *(sp+n)
      variable_locale0 : registre t0
@@ -26,6 +26,12 @@ contexte :
      variable_globale : memoire [section nom_de_section]
  */
 abr_est_present_tail_call:
+    addi sp, sp, -12
+    sw ra, 8(sp)
+    sw a1, 4(sp)
+    sw a0, 0(sp)
 abr_est_present_tail_call_fin_prologue:
 abr_est_present_tail_call_debut_epilogue:
+    lw ra, 8(sp)
+    addi sp, sp, 12
     ret
