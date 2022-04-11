@@ -29,28 +29,31 @@ void tri_nain(int32_t tab[], uint32_t taille)
   Contexte :
      tab : registre a0
      taille : registre a1
-     i : registre t0
      tmp : registre t5
+     i : registre t0
+     &tab[i] : registre t2
+     tab[i] : registre t3
+     tab[i+1] : registre t4
  */
 tri_nain_opt:
 tri_nain_opt_fin_prologue:
     lui t0, 0 /* i = 0 */
-    addi t1, a1, -1 /* t1 = taille - 1*/
-
 while:
+    addi t1, a1, -1 /* taille - 1*/
     bge t0, t1, fin_while
-    sll t4, t0, 2 /* décallage */
-    add t2, a0, t4 /* t2 = tab[i] (adresse) */
-    addi t3, t2, 4 /* t3 = tab[i+1] (adresse) */
-    lw t5, 0(t2) /* t5 = tab[i] (val) */
-    lw t6, 0(t3) /* t6 = tab[i+1] (val) */
-    blt t6, t5, if /* t6 <= t5 => branch*/
+    sll t1, t0, 2 /* décallage */
+    add t2, a0, t1 /* t2 = tab[i] (adresse) */
+    lw t3, 0(t2) /* t3 = tab[i] (val) */
+    addi t5, t2, 4 /* t5 = tab[i+1] (adresse) */
+    lw t4, 0(t5) /* t4 = tab[i+1] (val) */
+    blt t4, t3, if /* t4 <= t3 => branch*/
     j else
     if:
-        lw t5, 0(t2) /*int32_t tmp = tab[i] (val)*/
-        lw t6, 0(t3) /* t6 = val de tab[i+1]*/
+        add t5, t3, zero /*int32_t tmp = tab[i] (val)*/
+        add t6, t4, zero /* t6 = val de tab[i+1]*/
         sw t6, 0(t2) /*tab[i] = tab[i+1];*/
-        sw t5, 0(t3) /*tab[i+1] = tmp;*/
+        addi t6, t2, 4 /* t6 = tab[i+1] (adresse) */
+        sw t5, 0(t6) /*tab[i+1] = tmp;*/
         bge x0, t0, fin_if2 /* branch si 0 >= i */
         addi t0, t0, -1 /* i = i-1 */
         fin_if2:
