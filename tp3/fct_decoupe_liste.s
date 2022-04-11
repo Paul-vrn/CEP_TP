@@ -43,28 +43,46 @@ Contexte :
   fictif1.val   : pile à sp+0  (champ de type int32_t)
 */
 decoupe_liste:
+    addi sp, sp, -12
 decoupe_liste_fin_prologue:
-    
+    sw zero, 0(sp)
+    sw zero, 4(sp)
+    sw zero, 8(sp)
+    sw zero, 12(sp)
+    mv t1, sp
+    sw t1, 0(a1)
+    addi t1, t1, 8
+    sw t1, 0(a2)
 while:
-    beqz a0, fin_while
-    andi t1, a0, 1 /* t1 = l->val */
-    beqz t1, fin_if /* if (l->val % 2 == 1) */
-    lw t2, 0(a1) /* t2 = *l1 */
-    sw a0, 4(t2) /* (*l1)->suiv = l */
-    sw a0, 0(a1) /* *l1 = l */
+    beqz a0, fin_while /* l != NULL*/
+    lw t0, 0(a0) /* t0 = l->val*/
+    andi t1, t0, 1
+    beqz t1, else 
+    if:
+        lw t3, 0(a1)
+        sw a0, 4(t3) /* (*l1)->suiv = l */
+        sw a0, 0(a1) /* sw a0, a1 /* *l1 = l */
     j fin_if
     else:
-    lw t3, 0(a2) /* t3 = *l2 */
-    sw a0, 4(t3) /* (*l2)->suiv = l */
-    sw a0, 0(a2) /* *l2 = l */
-    fin_if:
-    lw a0, 4(a0) /*l = l->suiv */
+        lw t3, 0(a2)
+        sw a0, 4(t3) /* (*l2)->suiv = l */
+        sw a0, 0(a2) /* *l2 = l */
+    fin_if:    
+    lw t4, 4(a0)
+    mv a0, t4
+    j while
 fin_while:
-    sw x0, 4(a1) /* (*l1)->suiv = NULL */
-    sw x0, 4(a2) /* (*l2)->suiv = NULL */
-    lw t2, 0(a1) /* t2 = *l1 */
-    sw t2, 4(sp) /* *l1 = fictif1.suiv */
-    lw t3, 0(a2) /* t3 = *l2 */
-    sw t3, 12(sp) /* *l2 = fictif2.suiv */
+    lw t4, 0(a1)
+    sw zero, 4(t4)  /* (*l1)->suiv = NULL*/
+    lw t4, 0(a2)
+    sw zero, 4(t4)  /* (*l2)->suiv = NULL*/
+
+    lw t4, 4(sp)
+    sw t4, 0(a1) /* *l1 = fictif1.suiv*/
+
+    lw t4, 12(sp)
+    sw t4, 0(a2) /* *l2 = fictif2.suiv*/
+
 decoupe_liste_debut_epilogue:
+    addi sp, sp, 12
     ret
