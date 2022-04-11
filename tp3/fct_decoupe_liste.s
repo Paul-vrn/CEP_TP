@@ -43,7 +43,7 @@ Contexte :
   fictif1.val   : pile à sp+0  (champ de type int32_t)
 */
 decoupe_liste:
-    addi sp, sp, -12
+    addi sp, sp, -16
 decoupe_liste_fin_prologue:
     sw zero, 0(sp)
     sw zero, 4(sp)
@@ -84,5 +84,5 @@ fin_while:
     sw t4, 0(a2) /* *l2 = fictif2.suiv*/
 
 decoupe_liste_debut_epilogue:
-    addi sp, sp, 12
+    addi sp, sp, 16
     ret
