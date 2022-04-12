@@ -2,6 +2,7 @@ BINS = it timer
 BINS += it_incr_decr timer_raz timer_raz_btn0 timer_papl
 TMPOBJS = crt.o cep_excp.o
 
+
 RVDIR ?= /matieres/3MMCEP/riscv
 AS = $(RVDIR)/bin/riscv32-unknown-elf-gcc
 ASFLAGS = -g -c
@@ -33,6 +34,8 @@ OBJS = $(foreach f, $(BINS), $(addsuffix .o, $f)) \
 .PHONY: clean
 clean:
 	$(RM) $(BINS) $(OBJS) $(TMPOBJS) $(STXETDOUTS) $(SORTIES)
+ASFLAGS += -x assembler-with-cpp
+
 
 crt.o : crt.s cep_platform.h
 

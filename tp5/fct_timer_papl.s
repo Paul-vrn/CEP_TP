@@ -3,7 +3,7 @@
 .globl reveil
 /* void reveil(uint32_t delta_t); */
 reveil:
-/* A completer */
+/* A reprendre depuis fct_timer.s */
     ret
 
 .globl gestion_interruptions
@@ -16,7 +16,7 @@ gestion_interruptions:
     jal  mon_vecteur_horloge
     j    retour
 interruption_externe:
-    /* Pour plus tard : gestion des boutons poussoirs */
+    /* À compléter : gestion des boutons poussoirs */
 retour:
     lw   ra, 0(sp)
     addi sp, sp, 4
