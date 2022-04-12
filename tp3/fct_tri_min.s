@@ -14,7 +14,7 @@ void tri_min(int32_t tab[], uint32_t taille)
         tab[ix_min] = tmp;
     }
 }
-#ENTREE 45
+#ENTREE 23
 */
     .text
     .globl tri_min
