@@ -32,7 +32,7 @@ void tri_nain(int32_t tab[], uint32_t taille)
      tmp : registre t5
      i : registre t0
      &tab[i] : registre t2
-     tab[i] : registre t3, mémoire
+     tab[i] : registre t3, mémoire 
      tab[i+1] : registre t4, mémoire
  */
 tri_nain_opt:
