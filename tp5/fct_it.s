@@ -27,7 +27,8 @@ mon_vecteur:
     /* blink = ~blink; */
     la   t1, blink
     lbu  t0, (t1)
-    xori t0, t0, 0xF
+    /*xori t0, t0, 0xF*/
+    addi t0, t0, 1
     sb   t0, (t1)
 
     /* écriture de blink sur les LED
@@ -83,3 +84,4 @@ it_debut_epilogue:
 .data
 /* uint8_t blink; */
 blink:  .byte 0
+mret

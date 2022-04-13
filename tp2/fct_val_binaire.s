@@ -42,43 +42,43 @@ uint8_t val_binaire(uint8_t b15, uint8_t b14, uint8_t b13, uint8_t b12,
 val_binaire:
 val_binaire_fin_prologue:
     lui t1, 0
-	sll t0, a0, 15
+	slli t0, a0, 15
 	or t1, t1, t0
-	sll t0, a1, 14
+	slli t0, a1, 14
 	or t1, t1, t0
-	sll t0, a2, 13
+	slli t0, a2, 13
 	or t1, t1, t0
-	sll t0, a3, 12
+	slli t0, a3, 12
 	or t1, t1, t0
-	sll t0, a4, 11
+	slli t0, a4, 11
 	or t1, t1, t0
-	sll t0, a5, 10
+	slli t0, a5, 10
 	or t1, t1, t0
-	sll t0, a6, 9
+	slli t0, a6, 9
 	or t1, t1, t0
-	sll t0, a7, 8
+	slli t0, a7, 8
 	or t1, t1, t0
 
     lw t0, 0(sp)
-    sll t0, t0, 7
+    slli t0, t0, 7
     or t1, t1, t0
     lw t0, 4(sp)
-    sll t0, t0, 6
+    slli t0, t0, 6
     or t1, t1, t0
     lw t0, 8(sp)
-    sll t0, t0, 5
+    slli t0, t0, 5
     or t1, t1, t0
     lw t0, 12(sp)
-    sll t0, t0, 4
+    slli t0, t0, 4
     or t1, t1, t0
     lw t0, 16(sp)
-    sll t0, t0, 3
+    slli t0, t0, 3
     or t1, t1, t0
     lw t0, 20(sp)
-    sll t0, t0, 2
+    slli t0, t0, 2
     or t1, t1, t0
     lw t0, 24(sp)
-    sll t0, t0, 1
+    slli t0, t0, 1
     or t1, t1, t0
     lw t0, 28(sp)
     or t1, t1, t0
