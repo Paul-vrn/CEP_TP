@@ -28,7 +28,19 @@ mon_vecteur:
     /* blink = ~blink; */
     la   t1, blink
     lbu  t0, (t1)
-    xori t0, t0, 0xF
+    /*xori t0, t0, 0xF*/
+    andi t5, t2, 1 /* check si premier bit = 1*/
+    beqz t5, elsif
+    if:
+    addi t0, t0, -1
+    j end_if
+    elsif:
+    srl t4, t2, 1 /* décalle à droite de 1 bit pour check le 2eme bit pour BTN1*/
+    andi t5, t4, 1
+    beqz t5, end_if
+    addi t0, t0, -1
+    end_if:
+    
     sb   t0, (t1)
 
     /* écriture de blink sur les LED
