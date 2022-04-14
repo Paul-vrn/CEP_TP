@@ -8,16 +8,17 @@ reveil:
     lw t1, 0(t0) /* (valeur) date actuelle */
     add t2, t1, a0 /* t2 = date + delta_t */
     /*if t2 inférieur à t1 alors dépassement*/
-    slt t3, t2, t1
-    bnez t3, else
+    slt t3, t2, t1 /* t3 = new date < old date */
     la t5, CLINT_TIMER_CMP_LO
-    sw t3, 0(t5) /* on enregistre la val normale sur les 32 premiers bits */
+    bnez t3, else
+    if:
+    sw t2, 0(t5) /* on enregistre la val normale sur les 32 premiers bits */
     j end_if
     else:
-    sw t3, 0(t5) /* on enregistre la val normale sur les 32 premiers bits */
+    sw t2, 0(t5) /* on enregistre la val normale sur les 32 premiers bits */
     addi t6, zero, 1
     la t5, CLINT_TIMER_CMP_HI
-    sw t6, 4(t5) /* on met '1' dans les bits de points forts */
+    sw t6, 0(t5) /* on met '1' dans les bits de points forts */
     end_if:
     ret
 
